@@ -21,43 +21,45 @@
                         </a>
                     </div>
                     <div class="card mx-4 border-light">
-                        <table class="table">
-                            <thead class="table-light">
-                                <tr>
-                                    <th>No</th>
-                                    <th>NIM</th>
-                                    <th>Nama</th>
-                                    <th>Jalur Masuk</th>
-                                    <th>Asal Daerah</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $result = mysqli_query($conn, "SELECT * FROM mahasiswa ORDER BY id DESC");
-                                if (mysqli_num_rows($result) > 0){
-                                    $no = 1;
-                                    while ($row = mysqli_fetch_assoc($result)){
-                                       echo "<tr>";
-                                       echo "<td>".$no++."</td>";
-                                       echo "<td>".$row['nim']."</td>";
-                                       echo "<td>".$row['nama']."</td>";
-                                       echo "<td>".$row['jalur']."</td>";
-                                       echo "<td>".$row['asal']."</td>";
-                                       echo "<td class='d-flex f-row justify-content-center'>";
-                                       echo "<a href='edit.php?id=".$row['id']."'><button type='button' class='btn btn-outline-secondary rounded-pill mx-1 btn-sm px-3'>Edit</button></a>";
-                                       echo "<a href='hapus.php?id=".$row['id']."'><button type='button' class='btn btn-outline-danger rounded-pill mx-1 btn-sm px-3' onclick='return confirm(\"Yakin ingin menghapus data?\")'>Hapus</button></a>";
-                                       echo "</td>";
-                                       echo "</tr>";
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>No</th>
+                                        <th>NIM</th>
+                                        <th>Nama</th>
+                                        <th>Jalur Masuk</th>
+                                        <th>Asal Daerah</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $result = mysqli_query($conn, "SELECT * FROM mahasiswa ORDER BY id DESC");
+                                    if (mysqli_num_rows($result) > 0){
+                                        $no = 1;
+                                        while ($row = mysqli_fetch_assoc($result)){
+                                           echo "<tr>";
+                                           echo "<td>".$no++."</td>";
+                                           echo "<td>".$row['nim']."</td>";
+                                           echo "<td>".$row['nama']."</td>";
+                                           echo "<td>".$row['jalur']."</td>";
+                                           echo "<td>".$row['asal']."</td>";
+                                           echo "<td class='d-flex f-row justify-content-center'>";
+                                           echo "<a href='edit.php?id=".$row['id']."'><button type='button' class='btn btn-outline-secondary rounded-pill mx-1 btn-sm px-3'>Edit</button></a>";
+                                           echo "<a href='hapus.php?id=".$row['id']."'><button type='button' class='btn btn-outline-danger rounded-pill mx-1 btn-sm px-3' onclick='return confirm(\"Yakin ingin menghapus data?\")'>Hapus</button></a>";
+                                           echo "</td>";
+                                           echo "</tr>";
+                                        }
+                                    } else {
+                                        echo "<tr><td colspan='7' class='justify-content-center'>Tidak ada data</td></tr>";
                                     }
-                                } else {
-                                    echo "<tr><td colspan='7' class='justify-content-center'>Tidak ada data</td></tr>";
-                                }
-
-                                mysqli_close($conn);
-                                ?>
-                            </tbody>
-                        </table>
+    
+                                    mysqli_close($conn);
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
