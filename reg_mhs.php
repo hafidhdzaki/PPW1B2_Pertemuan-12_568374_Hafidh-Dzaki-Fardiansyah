@@ -41,7 +41,7 @@ if (isset($_POST['kirim'])) {
                     <form method="POST">
                         <div class="py-2 small">
                             <label for="nama" class="form-label fw-bold">Nama Lengkap</label>
-                            <input type="text" id="nama" name="nama" placeholder="Masukkan Nama" class="form-control" <?= $_SESSION['tersubmit'] == true? "value= ".$_SESSION['nama']:""; ?> required>
+                            <input type="text" id="nama" name="nama" placeholder="Masukkan Nama" class="form-control" <?= $_SESSION['tersubmit'] == true? "value= '".$_SESSION['nama']."'":""; ?> required>
                         </div>
 
                         <div class="py-2 small">
